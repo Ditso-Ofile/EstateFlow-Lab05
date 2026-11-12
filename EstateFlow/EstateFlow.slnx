@@ -3,5 +3,6 @@
     <Build />
     <Deploy />
   </Project>
+  <Project Path="EstateFlow.Domain/EstateFlow.Domain.csproj" />
   <Project Path="EstateFlow.Server/EstateFlow.Server.csproj" />
 </Solution>
