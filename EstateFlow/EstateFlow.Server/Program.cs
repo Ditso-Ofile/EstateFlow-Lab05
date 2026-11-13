@@ -1,3 +1,4 @@
+using EstateFlow.Application;
 using EstateFlow.Infrastructure.Data;
 using EstateFlow.Server.Services;
 using FluentValidation;
@@ -20,6 +21,9 @@ builder.Services.AddDbContext<EstateFlowDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("EstateFlowDbConnection")));
 
 builder.Services.AddValidatorsFromAssemblyContaining<Program>();
+
+builder.Services.AddScoped<IApplicationDbContext>(provider =>
+    provider.GetRequiredService<EstateFlowDbContext>());
 
 builder.Services.AddScoped<IMeterReadingService, MeterReadingService>();
 
